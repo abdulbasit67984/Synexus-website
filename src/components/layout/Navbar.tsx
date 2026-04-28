@@ -18,15 +18,15 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-[#f8fbfb]/95 backdrop-blur-xl">
       <div className="container-custom flex h-20 items-center justify-between">
-        <Link href="/" className="shrink-0">
-          <div className="leading-none">
-            <div className="text-[2rem] font-semibold tracking-[0.22em] text-[#0c1520] sm:text-[2.35rem]">
-              SYNE<span className="text-[#16a79e]">X</span>US
-            </div>
-            <div className="mt-2 text-[10px] font-semibold tracking-[0.28em] text-[#16a79e] sm:text-xs">
-              SOFTWARE TECHNOLOGIES
-            </div>
-          </div>
+        <Link href="/" className="shrink-0" aria-label="Synexus">
+          <img
+            src="/synexus-logo.png"
+            alt="Synexus"
+            width={180}
+            height={48}
+            className="h-10 w-auto rounded-sm bg-[#f8fbfb] mix-blend-multiply sm:h-12"
+            loading="eager"
+          />
         </Link>
 
         <nav className="hidden items-center gap-10 lg:flex">
