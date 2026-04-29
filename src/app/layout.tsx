@@ -67,12 +67,13 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <div className="noise-overlay" />
         <div className="radial-blur" />
+        <div className="bg-master">
+          <Navbar />
 
-        <Navbar />
+          {children}
 
-        {children}
-
-        <Footer />
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -10,7 +10,7 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-master">
+    <main className="min-h-screen">
       <HeroSection />
       <ServicesSection />
       <ProductsPreviewSection />
