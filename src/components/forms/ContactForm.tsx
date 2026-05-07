@@ -136,8 +136,7 @@ export function ContactForm() {
 
       {submitted ? (
         <div className="mt-6 rounded-2xl border border-cyan-300/30 bg-cyan-300/10 px-4 py-3 text-sm text-cyan-200">
-          Your message has been prepared successfully. Backend email handling
-          can be connected later using API routes, Resend, Nodemailer, or a CRM.
+          Your message has been Sent successfully.
         </div>
       ) : null}
 
