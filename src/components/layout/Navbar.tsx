@@ -17,7 +17,7 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-[#f8fbfb]/95 backdrop-blur-xl">
+    <header className="site-header sticky top-0 border-b border-[#dcebea] bg-white/86 shadow-[0_12px_34px_rgba(15,23,42,0.06)] backdrop-blur-xl">
       <div className="container-custom flex h-20 items-center justify-between">
         <Link href="/" className="shrink-0" aria-label="Synexus">
           <Image

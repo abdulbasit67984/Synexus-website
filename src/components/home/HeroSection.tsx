@@ -29,7 +29,7 @@ export function HeroSection() {
 
       {/* <div className="absolute left-0 top-28 h-44 w-36 opacity-35 [background-image:radial-gradient(circle_at_1px_1px,rgba(22,167,158,0.30)_1.4px,transparent_0)] [background-size:14px_14px]" /> */}
 
-      <div className="absolute right-0 top-8 hidden select-none text-[20rem] font-black leading-none text-[#10958d]/[0.04] lg:block xl:text-[28rem]">
+      <div className="absolute right-0 top-8 select-none text-[8rem] font-black leading-none text-[#10958d]/[0.04] sm:text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[28rem]">
         X
       </div>
 

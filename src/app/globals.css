@@ -117,6 +117,12 @@ a {
   z-index: 2;
 }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding-block: 64px;
@@ -128,7 +134,7 @@ a {
 }
 
 body {
-  font-family: var(--font-orbitron), system-ui, sans-serif;
+  font-family: var(--font-oxanium), system-ui, sans-serif;
 }
 
 h1,
@@ -137,7 +143,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-orbitron), system-ui, sans-serif;
+  font-family: var(--font-oxanium), system-ui, sans-serif;
 }
 
 /* .noise-overlay {

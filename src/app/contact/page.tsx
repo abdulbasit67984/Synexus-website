@@ -8,7 +8,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { SectionHeader } from "@/components/common/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -54,15 +53,36 @@ const supportCards = [
   },
 ];
 
+function SectionIntro({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="mx-auto max-w-3xl text-center">
+      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#16a79e]">
+        {eyebrow}
+      </p>
+      <h2 className="mt-5 text-2xl font-bold tracking-[-0.02em] text-[#09131f] md:text-4xl md:leading-[1.08]">
+        {title}
+      </h2>
+      <p className="mt-6 text-base leading-8 text-[#5e6772] md:text-lg">
+        {description}
+      </p>
+    </div>
+  );
+}
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-master">
+    <main className="min-h-screen bg-white">
       <section className="section-padding relative overflow-hidden">
-        <div className="absolute left-0 top-20 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
-        <div className="absolute bottom-20 right-0 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
-
         <div className="container-custom relative z-10">
-          <SectionHeader
+          <SectionIntro
             eyebrow="Contact Us"
             title="Let’s discuss your next digital product"
             description="Share your project idea, product requirement, or business challenge. We will help you plan the right software solution."
@@ -70,12 +90,12 @@ export default function ContactPage() {
 
           <div className="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-6">
-              <div className="rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 backdrop-blur-xl md:p-8">
-                <h2 className="text-2xl font-bold text-white">
+              <div className="rounded-[2rem] border border-[#e8ecf1] bg-white p-6 md:p-8">
+                <h2 className="text-2xl font-bold text-[#09131f]">
                   Contact Details
                 </h2>
 
-                <p className="mt-3 text-sm leading-7 text-slate-400">
+                <p className="mt-3 text-sm leading-7 text-[#5e6772]">
                   Reach out for custom software development, ERP systems, CMS
                   platforms, websites, mobile apps, dashboards, and automation
                   solutions.
@@ -88,17 +108,17 @@ export default function ContactPage() {
                     return (
                       <div
                         key={detail.label}
-                        className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+                        className="flex items-start gap-4 rounded-2xl border border-[#e8ecf1] bg-[#f8f9fb] p-4"
                       >
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-cyan-300/10 text-cyan-300">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#16a79e]/10 text-[#16a79e]">
                           <Icon className="h-5 w-5" />
                         </div>
 
                         <div>
-                          <p className="text-sm font-semibold text-white">
+                          <p className="text-sm font-semibold text-[#09131f]">
                             {detail.label}
                           </p>
-                          <p className="mt-1 text-sm text-slate-400">
+                          <p className="mt-1 text-sm text-[#5e6772]">
                             {detail.value}
                           </p>
                         </div>
@@ -115,17 +135,17 @@ export default function ContactPage() {
                   return (
                     <div
                       key={card.title}
-                      className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl"
+                      className="rounded-3xl border border-[#e8ecf1] bg-white p-6"
                     >
-                      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-300/10 text-cyan-300">
+                      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#16a79e]/10 text-[#16a79e]">
                         <Icon className="h-6 w-6" />
                       </div>
 
-                      <h3 className="text-lg font-bold text-white">
+                      <h3 className="text-lg font-bold text-[#09131f]">
                         {card.title}
                       </h3>
 
-                      <p className="mt-3 text-sm leading-7 text-slate-400">
+                      <p className="mt-3 text-sm leading-7 text-[#5e6772]">
                         {card.description}
                       </p>
                     </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron } from "next/font/google";
+import { Orbitron, Oxanium } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/lib/constants";
@@ -8,6 +8,13 @@ import "./globals.css";
 const orbitron = Orbitron({
   subsets: ["latin"],
   variable: "--font-orbitron",
+  display: "swap",
+});
+
+const oxanium = Oxanium({
+  subsets: ["latin"],
+  variable: "--font-oxanium",
+  weight: "400",
   display: "swap",
 });
 
@@ -59,13 +66,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={orbitron.variable} suppressHydrationWarning>
+    <html lang="en" className={`${orbitron.variable} ${oxanium.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <div className="noise-overlay" />
         <div className="radial-blur" />
-        <div className="bg-master">
-          <Navbar />
+        <Navbar />
 
+        <div className="bg-master">
           {children}
 
           <Footer />
