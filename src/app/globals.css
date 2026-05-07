@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -107,9 +106,7 @@ a {
   background-size:
     auto 100vh, 
     auto 100vh;
-  background-attachment: fixed;
   opacity: 0.4;
-  filter: brightness(1.3) contrast(0.7);
   box-shadow: 
     inset 200px 0 80px -80px rgba(22, 167, 158, 0.1),
     inset -200px 0 80px -80px rgba(22, 167, 158, 0.1);
@@ -131,7 +128,7 @@ a {
 }
 
 body {
-  font-family: "Orbitron", system-ui, sans-serif;
+  font-family: var(--font-orbitron), system-ui, sans-serif;
 }
 
 h1,
@@ -140,7 +137,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Orbitron", system-ui, sans-serif;
+  font-family: var(--font-orbitron), system-ui, sans-serif;
 }
 
 /* .noise-overlay {

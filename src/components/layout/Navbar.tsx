@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
@@ -19,13 +20,14 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-[#f8fbfb]/95 backdrop-blur-xl">
       <div className="container-custom flex h-20 items-center justify-between">
         <Link href="/" className="shrink-0" aria-label="Synexus">
-          <img
+          <Image
             src="/synexus-logo.png"
             alt="Synexus"
             width={180}
             height={48}
             className="h-10 w-auto rounded-sm bg-[#f8fbfb] mix-blend-multiply sm:h-12"
             loading="eager"
+            fetchPriority="high"
           />
         </Link>
 

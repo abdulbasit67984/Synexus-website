@@ -1,8 +1,7 @@
 "use client";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import {
-    Float,
     Html,
     OrbitControls,
     Sparkles,
@@ -35,24 +34,22 @@ function ModuleLabel({
     const z = Math.sin(radian) * radius;
 
     return (
-        <Float speed={1.7} rotationIntensity={0.25} floatIntensity={0.45}>
-            <group position={[x, 0.75, z]}>
-                <mesh>
-                    <sphereGeometry args={[0.08, 24, 24]} />
-                    <meshStandardMaterial
-                        color="#16a79e"
-                        emissive="#16a79e"
-                        emissiveIntensity={1.3}
-                    />
-                </mesh>
+        <group position={[x, 0.75, z]}>
+            <mesh>
+                <sphereGeometry args={[0.08, 18, 18]} />
+                <meshStandardMaterial
+                    color="#16a79e"
+                    emissive="#16a79e"
+                    emissiveIntensity={1.3}
+                />
+            </mesh>
 
-                <Html center distanceFactor={9}>
-                    <div className="rounded-full border border-[#cdeee9] bg-white/90 px-3 py-1 text-xs font-semibold text-[#129b92] shadow-[0_12px_28px_rgba(15,23,42,0.08)] backdrop-blur">
-                        {label}
-                    </div>
-                </Html>
-            </group>
-        </Float>
+            <Html center distanceFactor={9}>
+                <div className="rounded-full border border-[#cdeee9] bg-white/90 px-3 py-1 text-xs font-semibold text-[#129b92] shadow-[0_12px_28px_rgba(15,23,42,0.08)] backdrop-blur">
+                    {label}
+                </div>
+            </Html>
+        </group>
     );
 }
 
@@ -186,8 +183,7 @@ function BrandSurfaceText() {
 
 function SynexusXCore() {
     const groupRef = useRef<Group>(null);
-    const orbitRef = useRef<Group>(null);
-    const { pointer } = useThree();
+    const { invalidate, pointer } = useThree();
 
     const tealMaterial = useMemo(
         () =>
@@ -325,37 +321,53 @@ function SynexusXCore() {
         []
     );
 
-    useFrame((_, delta) => {
-        if (!groupRef.current || !orbitRef.current) return;
-
-        groupRef.current.rotation.y += delta * 0.35;
-        orbitRef.current.rotation.y -= delta * 0.22;
+    function applyPointerTilt() {
+        if (!groupRef.current) return;
 
         groupRef.current.rotation.x = THREE.MathUtils.lerp(
             groupRef.current.rotation.x,
             pointer.y * 0.16,
-            0.05
+            0.35
         );
 
         groupRef.current.rotation.z = THREE.MathUtils.lerp(
             groupRef.current.rotation.z,
             -pointer.x * 0.12,
-            0.05
+            0.35
         );
-    });
+
+        invalidate();
+    }
+
+    function resetPointerTilt() {
+        if (!groupRef.current) return;
+
+        groupRef.current.rotation.x = THREE.MathUtils.lerp(
+            groupRef.current.rotation.x,
+            0,
+            0.5
+        );
+        groupRef.current.rotation.z = THREE.MathUtils.lerp(
+            groupRef.current.rotation.z,
+            0,
+            0.5
+        );
+
+        invalidate();
+    }
 
     return (
-        <group>
+        <group onPointerMove={applyPointerTilt} onPointerLeave={resetPointerTilt}>
             <Sparkles
                 count={55}
                 scale={[5.2, 3.2, 5.2]}
                 size={2.4}
-                speed={0.35}
+                speed={0}
                 color="#16a79e"
                 opacity={0.55}
             />
 
-            <group ref={orbitRef}>
+            <group>
                 {modules.map((module) => (
                     <ModuleLabel
                         key={module.label}
@@ -370,7 +382,7 @@ function SynexusXCore() {
                     <BrandSurfaceText />
                 </Suspense>
                 <mesh position={[0, -1.05, 0]}>
-                    <cylinderGeometry args={[1.98, 1.98, 0.28, 128]} />
+                    <cylinderGeometry args={[1.98, 1.98, 0.28, 96]} />
                     <meshStandardMaterial
                         color="#ffffff"
                         roughness={0.12}
@@ -381,7 +393,7 @@ function SynexusXCore() {
                 </mesh>
 
                 <mesh position={[0, -0.83, 0]} rotation={[Math.PI / 2, 0, 0]}>
-                    <torusGeometry args={[1.75, 0.055, 28, 180]} />
+                    <torusGeometry args={[1.75, 0.055, 20, 128]} />
                     <meshStandardMaterial
                         color="#12706a"
                         emissive="#12706a"
@@ -392,7 +404,7 @@ function SynexusXCore() {
                 </mesh>
 
                 <mesh position={[0, -0.72, 0]}>
-                    <cylinderGeometry args={[1.72, 1.72, 0.2, 128]} />
+                    <cylinderGeometry args={[1.72, 1.72, 0.2, 96]} />
                     <meshStandardMaterial
                         color="#ffffff"
                         roughness={0.1}
@@ -467,9 +479,10 @@ export function SynexusXScene() {
 
             <Canvas
                 camera={{ position: [0, 1.2, 6.2], fov: 42 }}
-                dpr={[1, 1.7]}
+                dpr={[1, 1.35]}
+                frameloop="demand"
                 gl={{
-                    antialias: true,
+                    antialias: false,
                     alpha: true,
                     powerPreference: "high-performance",
                     toneMapping: THREE.ACESFilmicToneMapping,
@@ -488,6 +501,7 @@ export function SynexusXScene() {
                 <OrbitControls
                     enableZoom={false}
                     enablePan={false}
+                    enableDamping={false}
                     minPolarAngle={Math.PI / 2.7}
                     maxPolarAngle={Math.PI / 2.1}
                     rotateSpeed={0.45}

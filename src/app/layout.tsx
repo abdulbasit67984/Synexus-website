@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Orbitron } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
 
-const inter = Inter({
+const orbitron = Orbitron({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-orbitron",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -63,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+    <html lang="en" className={orbitron.variable} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <div className="noise-overlay" />
         <div className="radial-blur" />
