@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/favicon.PNG",
+  },
   keywords: [
     "Synexus Software Technologies",
     "software company",
