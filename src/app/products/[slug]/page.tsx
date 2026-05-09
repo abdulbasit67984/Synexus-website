@@ -196,7 +196,7 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      <section className="section-padding border-t border-[#e8ecf1] bg-[#f8f9fb]">
+      <section id="modules" className="section-padding border-t border-[#e8ecf1] bg-[#f8f9fb]">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#16a79e]">
@@ -232,7 +232,7 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      <section className="section-padding">
+      <section id="benefits" className="section-padding">
         <div className="container-custom">
           <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="max-w-3xl text-left">
@@ -267,7 +267,7 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      <section className="section-padding border-t border-[#e8ecf1] bg-[#f8f9fb]">
+      <section id="plans" className="section-padding border-t border-[#e8ecf1] bg-[#f8f9fb]">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#16a79e]">
