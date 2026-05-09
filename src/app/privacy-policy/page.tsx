@@ -50,7 +50,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-master">
       <section className="section-padding relative overflow-hidden">
-        <div className="absolute left-0 top-20 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute left-0 top-20 h-96 w-96 rounded-full bg blur-3xl" />
         <div className="absolute bottom-20 right-0 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
 
         <div className="container-custom relative z-10">
@@ -60,8 +60,8 @@ export default function PrivacyPolicyPage() {
             description="This page explains how Synexus Software Technologies may collect, use, and protect information submitted through this website."
           />
 
-          <div className="mx-auto mt-14 max-w-4xl rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 backdrop-blur-xl md:p-10">
-            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-3xl bg-cyan-300/10 text-cyan-300">
+          <div className="mx-auto mt-14 max-w-4xl rounded-[2rem] border border-[#16a79e]/30 p-6 backdrop-blur-xl md:p-10">
+            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#16a79e]/10 text-[#16a79e]">
               <ShieldCheck className="h-8 w-8" />
             </div>
 
@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-8">
               {sections.map((section) => (
                 <div key={section.title}>
-                  <h2 className="text-2xl font-bold text-white">
+                  <h2 className="text-2xl font-bold text-[#16a79e]">
                     {section.title}
                   </h2>
 

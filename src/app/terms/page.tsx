@@ -65,8 +65,8 @@ export default function TermsPage() {
             description="These terms explain the basic conditions for using this website and discussing services with Synexus Software Technologies."
           />
 
-          <div className="mx-auto mt-14 max-w-4xl rounded-[2rem] border border-white/10 bg-slate-950/60 p-6 backdrop-blur-xl md:p-10">
-            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-3xl bg-cyan-300/10 text-cyan-300">
+          <div className="mx-auto mt-14 max-w-4xl rounded-[2rem] border border-[#16a79e]/30 p-6 backdrop-blur-xl md:p-10">
+            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#16a79e]/10 text-[#16a79e]">
               <FileText className="h-8 w-8" />
             </div>
 
@@ -77,7 +77,7 @@ export default function TermsPage() {
             <div className="space-y-8">
               {sections.map((section) => (
                 <div key={section.title}>
-                  <h2 className="text-2xl font-bold text-white">
+                  <h2 className="text-2xl font-bold text-[#16a79e]">
                     {section.title}
                   </h2>
 
